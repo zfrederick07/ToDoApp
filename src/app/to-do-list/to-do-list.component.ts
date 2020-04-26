@@ -1,4 +1,7 @@
 import { Component, OnInit } from '@angular/core';
+import {Store} from '@ngrx/store';
+import {ToDoListState} from './store/to-do-list.reducer';
+import * as ToDoListActions from './store/to-do-list.actions';
 
 @Component({
   selector: 'app-to-do-list',
@@ -7,9 +10,9 @@ import { Component, OnInit } from '@angular/core';
 })
 export class ToDoListComponent implements OnInit {
 
-  constructor() { }
+  constructor(private store: Store<{ toDoList: ToDoListState }>) { }
 
-  ngOnInit(): void {
+  public ngOnInit(): void {
+    this.store.dispatch(ToDoListActions.GetToDoList());
   }
-
 }

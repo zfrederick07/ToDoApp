@@ -6,6 +6,9 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import {ToDoListModule} from './to-do-list/to-do-list.module';
 import {ToDoDetailsModule} from './to-do-details/to-do-details.module';
+import {HttpBaseInterceptor} from './HttpBaseInterceptor';
+import {HTTP_INTERCEPTORS} from '@angular/common/http';
+import { StoreDevtoolsModule } from '@ngrx/store-devtools';
 
 @NgModule({
   declarations: [
@@ -16,9 +19,13 @@ import {ToDoDetailsModule} from './to-do-details/to-do-details.module';
     AppRoutingModule,
     FlexLayoutModule,
     ToDoListModule,
-    ToDoDetailsModule
+    ToDoDetailsModule,
+    StoreDevtoolsModule.instrument({
+      maxAge: 10
+    })
   ],
-  providers: [],
+  providers: [AppComponent,
+    { provide: HTTP_INTERCEPTORS, useClass: HttpBaseInterceptor, multi: true }],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
