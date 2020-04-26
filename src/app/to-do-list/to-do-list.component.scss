@@ -1,0 +1,17 @@
+#to-do-list {
+  .header {
+    background: #152238;
+    color: white;
+    padding: 20px;
+
+    .text {
+      font-weight: 400;
+      font-size: 20px;
+      letter-spacing: 2px;
+    }
+  }
+
+  .to-do-item {
+    border-bottom: 1px solid black;
+  }
+}
