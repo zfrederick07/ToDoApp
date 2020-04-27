@@ -10,15 +10,16 @@
       Completed
     </div>
   </div>
-  <div fxLayout="row" fxFlex="1 1 100%" class="to-do-item">
+  <div *ngFor="let items of toDoItems" fxLayout="row" fxFlex="1 1 100%" class="to-do-item">
     <div class="text" fxLayout="column" fxFlex="1 1 25%">
-      Task
+      {{items?.title}}
     </div>
     <div class="text" fxLayout="column" fxFlex="1 1 65%">
-      Description
+      {{items?.description}}
     </div>
     <div class="text" fxLayout="column" fxFlex="1 1 10%">
-      Completed
+      {{items?.isCompleted}}
     </div>
   </div>
+
 </div>

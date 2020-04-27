@@ -9,6 +9,9 @@ import {ToDoDetailsModule} from './to-do-details/to-do-details.module';
 import {HttpBaseInterceptor} from './HttpBaseInterceptor';
 import {HTTP_INTERCEPTORS} from '@angular/common/http';
 import { StoreDevtoolsModule } from '@ngrx/store-devtools';
+import {StoreModule} from '@ngrx/store';
+import {ToDoListReducer} from './to-do-list/store/to-do-list.reducer';
+import {reducers} from './app-state';
 
 @NgModule({
   declarations: [
@@ -20,6 +23,7 @@ import { StoreDevtoolsModule } from '@ngrx/store-devtools';
     FlexLayoutModule,
     ToDoListModule,
     ToDoDetailsModule,
+    StoreModule.forRoot(reducers),
     StoreDevtoolsModule.instrument({
       maxAge: 10
     })

@@ -7,6 +7,7 @@ import {ToDoListService} from './to-do-list.service';
 import {ToDoListEffects} from './store/to-do-list.effects';
 import {EffectsModule} from '@ngrx/effects';
 import {HttpClient, HttpClientModule, HttpHandler} from '@angular/common/http';
+import {CommonModule} from '@angular/common';
 
 
 @NgModule({
@@ -15,9 +16,9 @@ import {HttpClient, HttpClientModule, HttpHandler} from '@angular/common/http';
   ],
   imports: [
     FlexLayoutModule,
-    StoreModule.forRoot({toDoList: ToDoListReducer}),
     EffectsModule.forRoot([ToDoListEffects]),
-    HttpClientModule
+    HttpClientModule,
+    CommonModule
   ],
   providers: [
     ToDoListService,
