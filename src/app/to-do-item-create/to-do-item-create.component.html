@@ -1,0 +1,31 @@
+<div fxLayout="column" fxFlex="1 1 100%">
+  <h3 fxLayout="row" fxFlex="1 1 100%">
+    What needs to be done?
+  </h3>
+  <div fxLayout="row" fxFlex="1 1 100%">
+    <mat-form-field >
+      <mat-label>Title</mat-label>
+        <input #title matInput (blur)="titleBlurEvent(title.value)">
+    </mat-form-field>
+  </div>
+  <div fxLayout="row" fxFlex="1 1 100%">
+    <mat-form-field>
+      <mat-label>Description</mat-label>
+      <textarea #description
+                matInput
+                cdkTextareaAutosize
+                #autosize="cdkTextareaAutosize"
+                cdkAutosizeMinRows="1"
+                cdkAutosizeMaxRows="5"
+                (blur)="descriptionBlurEvent(description.value)"></textarea>
+    </mat-form-field>
+  </div>
+  <div fxLayout="row" fxFlex="1 1 100%" fxLayoutGap="10px">
+    <div fxLayout="column" fxFlex="1 1 50%">
+      <button mat-raised-button (click)="closeCreate()">Back</button>
+    </div>
+    <div fxLayout="column" fxFlex="1 1 50%">
+      <button mat-raised-button color="primary" (click)="createItem()">Save</button>
+    </div>
+  </div>
+</div>

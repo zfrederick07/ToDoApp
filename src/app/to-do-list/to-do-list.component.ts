@@ -25,13 +25,15 @@ export class ToDoListComponent implements OnInit, AfterViewInit {
   public ngAfterViewInit(): void {
     this.toDoList$
       .subscribe((toDoListItems) => {
-        console.log('here');
-        console.log(toDoListItems);
         if (toDoListItems) {
           this.toDoItems = toDoListItems.toDoItems;
         }
         this.changeDetection.detectChanges();
       }
     );
+  }
+
+  public createToDoItem(): void {
+    this.store.dispatch(ToDoListActions.OpenToDoItemCreate());
   }
 }

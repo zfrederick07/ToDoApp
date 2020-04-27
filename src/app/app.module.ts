@@ -10,8 +10,9 @@ import {HttpBaseInterceptor} from './HttpBaseInterceptor';
 import {HTTP_INTERCEPTORS} from '@angular/common/http';
 import { StoreDevtoolsModule } from '@ngrx/store-devtools';
 import {StoreModule} from '@ngrx/store';
-import {ToDoListReducer} from './to-do-list/store/to-do-list.reducer';
 import {reducers} from './app-state';
+import {ToDoItemCreateModule} from './to-do-item-create/to-do-item-create.module';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
 @NgModule({
   declarations: [
@@ -23,10 +24,12 @@ import {reducers} from './app-state';
     FlexLayoutModule,
     ToDoListModule,
     ToDoDetailsModule,
+    ToDoItemCreateModule,
     StoreModule.forRoot(reducers),
     StoreDevtoolsModule.instrument({
       maxAge: 10
-    })
+    }),
+    BrowserAnimationsModule
   ],
   providers: [AppComponent,
     { provide: HTTP_INTERCEPTORS, useClass: HttpBaseInterceptor, multi: true }],

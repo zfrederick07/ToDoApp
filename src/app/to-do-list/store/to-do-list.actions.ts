@@ -14,9 +14,18 @@ export const GetToDoListSuccess = createAction(
 export const GetToDoListError = createAction(
   '[To Do List] Get To Do List Error'
 );
+
 export const CreateToDoItem = createAction(
   '[To Do List] Create To Do Item',
   props<{ toDoItem: ToDoItemDto }>()
+);
+
+export const CreateToDoItemSuccess = createAction(
+  '[To Do List] Create To Do Item Success'
+);
+
+export const CreateToDoItemError = createAction(
+  '[To Do List] Create To Do Item Error'
 );
 
 export const DeleteToDoItem = createAction(
@@ -36,4 +45,12 @@ export const OpenToDoItemDetail = createAction(
 
 export const CloseToDoItemDetail = createAction(
   '[To Do List] Close To Do Item Detail'
+);
+
+export const OpenToDoItemCreate = createAction(
+  '[To Do List] Open To Do Item Create'
+);
+
+export const CloseToDoItemCreate = createAction(
+  '[To Do List] Close To Do Item Create'
 );

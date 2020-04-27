@@ -1,6 +1,6 @@
 #to-do-list {
   .header {
-    background: #152238;
+    background: #673AB7;
     color: white;
     padding: 20px;
 
@@ -12,6 +12,8 @@
   }
 
   .to-do-item {
+    margin-top: 10px;
+    padding-bottom: 10px;
     border-bottom: 1px solid black;
   }
 }
