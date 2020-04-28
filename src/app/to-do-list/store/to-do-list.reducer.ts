@@ -7,10 +7,12 @@ export const toDoListFeatureKey = 'ToDoList';
 
 export interface ToDoListState {
   toDoItemList: ToDoListDto;
+  selectedToDoItem: ToDoItemDto;
 }
 
 export const initialState: ToDoListState = {
   toDoItemList: null,
+  selectedToDoItem: null,
 };
 
 const scoreboardReducer = createReducer(
@@ -19,6 +21,12 @@ const scoreboardReducer = createReducer(
     return {
       ...state,
       toDoItemList: toDoItems,
+    };
+  }),
+  on(ToDoListActions.GetToDoItemByIdSuccess, (state, { toDoItem }) => {
+    return {
+      ...state,
+      selectedToDoItem: toDoItem,
     };
   })
 );

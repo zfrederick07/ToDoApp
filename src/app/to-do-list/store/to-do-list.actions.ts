@@ -39,8 +39,7 @@ export const UpdateToDoItem = createAction(
 );
 
 export const OpenToDoItemDetail = createAction(
-  '[To Do List] Open To Do Item Detail',
-  props<{ id: number; }>()
+  '[To Do List] Open To Do Item Detail'
 );
 
 export const CloseToDoItemDetail = createAction(
@@ -53,4 +52,18 @@ export const OpenToDoItemCreate = createAction(
 
 export const CloseToDoItemCreate = createAction(
   '[To Do List] Close To Do Item Create'
+);
+
+export const GetToDoItemById = createAction(
+  '[To Do List] Get To Do Item By Id',
+  props<{ id: number; }>()
+);
+
+export const GetToDoItemByIdSuccess = createAction(
+  '[To Do List] Get To Do Item By Id Success',
+  props<{ toDoItem: ToDoItemDto; }>()
+);
+
+export const GetToDoItemByIdError = createAction(
+  '[To Do List] Get To Do Item By Id Error',
 );

@@ -4,7 +4,6 @@ import * as ToDoListActions from './store/to-do-list.actions';
 import * as selectors from './to-do-list.selectors';
 import {Observable} from 'rxjs';
 import {ToDoListDto} from '../../models/ToDoListDto.model';
-import {ToDoItemDto} from '../../models/ToDoItemDto.model';
 
 @Component({
   selector: 'app-to-do-list',
@@ -13,7 +12,7 @@ import {ToDoItemDto} from '../../models/ToDoItemDto.model';
 })
 export class ToDoListComponent implements OnInit, AfterViewInit {
   public toDoList$: Observable<ToDoListDto>;
-  public toDoItems: ToDoItemDto[];
+  public toDoItems: ToDoListDto;
   constructor(private store: Store,
               private changeDetection: ChangeDetectorRef) { }
 
@@ -24,9 +23,9 @@ export class ToDoListComponent implements OnInit, AfterViewInit {
 
   public ngAfterViewInit(): void {
     this.toDoList$
-      .subscribe((toDoListItems) => {
+      .subscribe((toDoListItems: ToDoListDto) => {
         if (toDoListItems) {
-          this.toDoItems = toDoListItems.toDoItems;
+          this.toDoItems = toDoListItems;
         }
         this.changeDetection.detectChanges();
       }
@@ -35,5 +34,10 @@ export class ToDoListComponent implements OnInit, AfterViewInit {
 
   public createToDoItem(): void {
     this.store.dispatch(ToDoListActions.OpenToDoItemCreate());
+  }
+
+  public openToDoItemDetail(id: number): void {
+    this.store.dispatch(ToDoListActions.GetToDoItemById({id}));
+    this.store.dispatch(ToDoListActions.OpenToDoItemDetail());
   }
 }

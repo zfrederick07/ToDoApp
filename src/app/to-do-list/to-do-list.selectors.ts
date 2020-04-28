@@ -8,3 +8,8 @@ export const toDoListMembers = createSelector(
   toDoListState,
   (state: ToDoListState) => state.toDoItemList
 );
+
+export const selectedToDoItem = createSelector(
+  toDoListState,
+  (state: ToDoListState) => state.selectedToDoItem
+);

@@ -27,7 +27,6 @@ export class ToDoItemCreateComponent {
   }
 
   public closeCreate(): void {
-    this.store.dispatch(ToDoListActions.CloseToDoItemCreate());
     this.dialogRef.close();
   }
 

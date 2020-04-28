@@ -1,1 +1,19 @@
-<p>to-do-details works!</p>
+<div id="to-do-item-detail" *ngIf="toDoItem" fxLayout="column" fxFlex="1 1 100%">
+  <div fxLayout="row" fxFlex="1 1 100%">
+    <mat-label>{{toDoItem.title}}</mat-label>
+  </div>
+  <div fxLayout="row" fxFlex="1 1 100%">
+    <mat-label>{{toDoItem.description}}</mat-label>
+  </div>
+  <div fxLayout="row" fxFlex="1 1 100%">
+    <mat-label>{{toDoItem.isCompleted}}</mat-label>
+  </div>
+  <div fxLayout="row" fxFlex="1 1 100%" fxLayoutGap="10px">
+    <div fxLayout="column" fxFlex="1 1 50%">
+      <button mat-raised-button (click)="closeDetail()">Back</button>
+    </div>
+    <div fxLayout="column" fxFlex="1 1 50%">
+      <button mat-raised-button color="primary" (click)="updateItem()">Update Item</button>
+    </div>
+  </div>
+</div>

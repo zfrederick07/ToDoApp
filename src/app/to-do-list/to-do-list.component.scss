@@ -12,8 +12,13 @@
   }
 
   .to-do-item {
-    margin-top: 10px;
-    padding-bottom: 10px;
+    cursor: pointer;
+    padding: 10px 20px;
     border-bottom: 1px solid black;
+  }
+
+  .create-to-do-item-color {
+    color: white;
+    background: #9079B8;
   }
 }

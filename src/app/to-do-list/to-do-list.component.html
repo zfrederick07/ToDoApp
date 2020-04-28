@@ -10,7 +10,7 @@
       Completed
     </div>
   </div>
-  <div *ngFor="let items of toDoItems" fxLayout="row" fxFlex="1 1 100%" class="to-do-item">
+  <div *ngFor="let items of toDoItems" fxLayout="row" fxFlex="1 1 100%" class="to-do-item" (click)="openToDoItemDetail(items?.id)">
     <div class="text" fxLayout="column" fxFlex="1 1 25%">
       {{items?.title}}
     </div>
@@ -21,7 +21,7 @@
       {{items?.isCompleted}}
     </div>
   </div>
-  <div fxLayout="row" fxFlex="1 1 100%" class="to-do-item" fxLayoutAlign="center center" (click)="createToDoItem()">
+  <div fxLayout="row" fxFlex="1 1 100%" class="to-do-item create-to-do-item-color" fxLayoutAlign="center center" (click)="createToDoItem()">
    Add To-Do Item
   </div>
 </div>

@@ -14,4 +14,9 @@ export class ToDoListService {
   public createToDoItem(toDoItem: ToDoItemDto) {
     return this.http.post('/toDoList/create', toDoItem);
   }
+
+  public getToDoItemsById(id: number) {
+    const url = '/toDoList/' + id;
+    return this.http.get(url);
+  }
 }
